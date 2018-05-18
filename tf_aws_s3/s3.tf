@@ -1,12 +1,10 @@
 resource "aws_s3_bucket" "default_s3" {
-  bucket = "${var.str_bucket}"
+  bucket = "pgr-cdb-jenkinstest"
   acl    = "private"  #Must be set to private
-  region = "${var.str_region}"      #default us-east-1
+  region = "us-east-1"      #default us-east-1
 
   versioning {
-    enabled    = "${var.str_versioning_enabled}" #default true
-    mfa_delete = "${var.str_versioning_mfa_delete}"  #default false
+    enabled    = "true" #default true
+    mfa_delete = "false"  #default false
   }
-
-  tags = "${var.map_tags}"
 }
